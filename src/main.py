@@ -2,16 +2,19 @@ import os
 from tkinter.filedialog import askdirectory
 from file import movefile
 
-#Ask user to select a source folder
+# Ask user to select a source folder
 src_path = askdirectory(title = 'Select Folder')
 
-#CoDy's folder
+# CoDy's folder
 dest_path = f"{src_path}\\CoDy"
 
-#Create destination folder if it doesn't exist
+# Create destination folder if it doesn't exist
 exists = os.path.exists(dest_path)
 if not exists:
     os.mkdir(dest_path)
+
+# Setting working directory
+os.chdir(src_path)
 
 try:
     print("Starting the tool...")
